@@ -1,0 +1,287 @@
+set $mod Mod4
+set $sup Mod1
+
+floating_modifier $mod
+floating_maximum_size -1 x -1
+focus_follows_mouse no
+# font pango: agave Nerd Font Mono 13.5
+font pango: JetBrainsMono Nerd Font Regular 11
+gaps inner 12
+focus_on_window_activation focus
+hide_edge_borders smart
+mouse_warping output
+popup_during_fullscreen smart
+smart_gaps on
+default_border pixel 1
+default_floating_border normal 1
+
+
+bindsym $mod+$sup+Ctrl+t splitv layout tabbed focus parent splitv focus child
+bindsym $mod+BackSpace split t
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+f sticky disable floating toggle [tiling con_id=__focused__] border pixel 1 [floating con_id=__focused__] border normal 0
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+t focus mode_toggle
+bindsym $mod+Shift+x sticky enable move scratchpad
+bindsym $mod+Tab workspace next
+bindsym $mod+b exec --no-startup-id i3-msg gaps inner current set 0 && ~/.local/bin/i3_balance_workspace && i3-msg gaps inner current set 12
+bindsym $mod+f fullscreen toggle
+bindsym $mod+m bar mode toggle
+bindsym $mod+n focus child
+bindsym $mod+q kill
+bindsym $mod+s floating enable sticky toggle
+bindsym $mod+shift+p exec --no-startup-id ~/files/bin/toggle-picom.sh
+bindsym $mod+shift+y exec --no-startup-id ~/files/bin/ytfzf -Dm --detach
+bindsym $mod+t layout toggle splith splitv tabbed
+bindsym $mod+u focus parent
+bindsym $mod+x scratchpad show [floating con_id=__focused__] border normal 0
+bindsym $mod+y exec --no-startup-id ~/files/bin/ytfzf -D --detach
+bindsym --whole-window $mod+button2 floating toggle, move position center
+bindsym $mod+v [urgent=latest] focus
+
+# Screenshotting
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) $HOME/files/pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png
+bindsym $mod+Ctrl+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id maim $HOME/files/pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png
+bindsym Shift+Print exec --no-startup-id maim --select $HOME/files/pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png
+
+
+# Navigation Windows
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Moving Windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Right move workspace to output left
+bindsym $mod+Left move workspace to output right
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Down move workspace to output down
+
+bindsym $mod+1 workspace number  1
+bindsym $mod+2 workspace number  2
+bindsym $mod+3 workspace number  3
+bindsym $mod+4 workspace number  4
+bindsym $mod+5 workspace number  5
+bindsym $mod+6 workspace number  6
+bindsym $mod+7 workspace number  7
+bindsym $mod+8 workspace number  8
+bindsym $mod+9 workspace number  9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Ctrl+1 exec --no-startup-id dash -c "i3 rename workspace to 1 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+2 exec --no-startup-id dash -c "i3 rename workspace to 2 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+3 exec --no-startup-id dash -c "i3 rename workspace to 3 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+4 exec --no-startup-id dash -c "i3 rename workspace to 4 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+5 exec --no-startup-id dash -c "i3 rename workspace to 5 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+6 exec --no-startup-id dash -c "i3 rename workspace to 6 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+7 exec --no-startup-id dash -c "i3 rename workspace to 7 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+8 exec --no-startup-id dash -c "i3 rename workspace to 8 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+9 exec --no-startup-id dash -c "i3 rename workspace to 9 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+bindsym $mod+Ctrl+0 exec --no-startup-id dash -c "i3 rename workspace to10 && i3wsr -i awesome --config ~/.config/i3/i3wsr.toml"
+
+bindsym $mod+Shift+1 move container to workspace number  1
+bindsym $mod+Shift+2 move container to workspace number  2
+bindsym $mod+Shift+3 move container to workspace number  3
+bindsym $mod+Shift+4 move container to workspace number  4
+bindsym $mod+Shift+5 move container to workspace number  5
+bindsym $mod+Shift+6 move container to workspace number  6
+bindsym $mod+Shift+7 move container to workspace number  7
+bindsym $mod+Shift+8 move container to workspace number  8
+bindsym $mod+Shift+9 move container to workspace number  9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Resizing Windows
+bindsym Ctrl+$mod+h resize shrink width 192 px
+bindsym Ctrl+$mod+j resize grow height 192 px
+bindsym Ctrl+$mod+k resize shrink height 192 px
+bindsym Ctrl+$mod+l resize grow width 192 px
+bindsym Ctrl+Shift+$mod+h resize shrink width 6 px
+bindsym Ctrl+Shift+$mod+j resize grow height 6 px
+bindsym Ctrl+Shift+$mod+k resize shrink height 6 px
+bindsym Ctrl+Shift+$mod+l resize grow width 6 px
+
+# Gaps
+bindsym $mod+plus gaps inner current plus 6
+bindsym $mod+minus gaps inner current minus 6
+
+
+
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    bindsym Escape mode "default"
+    bindsym h resize shrink width 192 px
+    bindsym j resize grow height 192 px
+    bindsym k resize shrink height 192 px
+    bindsym l resize grow width 192 px
+    bindsym $mod+h resize shrink width 6 px
+    bindsym $mod+j resize grow height 6 px
+    bindsym $mod+k resize shrink height 6 px
+    bindsym $mod+l resize grow width 6 px
+    bindsym plus gaps inner current plus 6
+    bindsym minus gaps inner current minus 6
+    bindsym b exec --no-startup-id i3-msg gaps inner current set 0 && ~/.local/bin/i3_balance_workspace && i3-msg gaps inner current set 6
+    bindsym r exec --no-startup-id bash ~/files/bin/setsize.sh
+}
+
+# set $alert   #ff2777
+# set $dark50  #808080
+# set $dark60  #666666
+# set $dark70  #4d4d4d
+# set $dark80  #333333
+# set $dark90  #1a1a1a
+# set $dark100 #000000
+# set $hint     #8080a0
+# set $light60  #999999
+# set $light70  #b3b3b3
+# set $light80  #cccccc
+# set $light90  #e6e6e6
+# set $light100 #ffffff
+
+# # class                     brdr      bg        text      indctr    child_b
+# client.focused              $light90  $hint    $dark100  $light100  $hint
+# client.focused_inactive     $light70  $dark90  $light90  $light100  $dark90
+# client.unfocused            $dark70   $dark90  $light80  $light100  $dark90
+# client.urgent               $light90  $alert   $light100 $light100  $dark90
+# client.placeholder          $dark70   $dark90  $light90  $light100  $dark90
+# client.background           $dark70
+
+# set $alert    #bf616a
+# set $dark50   #474c52
+# set $dark60   #363a42
+# set $dark70   #2e3440
+# set $dark80   #242932
+# set $dark90   #1e222a
+# set $dark100  #000000
+# set $hint     #81a1c1
+# set $light60  #5b5f65
+# set $light70  #919498
+# set $light80  #bbbcbf
+# set $light90  #e6e6e6
+# set $light100 #ffffff
+
+set $alert    #ff0000
+set $dark60   #444444
+set $dark70   #333333
+set $dark80   #222222
+set $dark90   #111111
+set $dark100  #000000
+set $hint     #0000ff
+set $light60  #888888
+set $light70  #aaaaaa
+set $light80  #cccccc
+set $light90  #eeeeee
+set $light100 #ffffff
+
+# class                     brdr      bg        text      indctr    child_b
+client.focused              $light90  $dark70   $light90  $hint  $light90
+client.focused_inactive     $light60  $dark100  $light90  $hint  $dark100
+client.unfocused            $light60  $dark100  $light80  $hint  $dark100
+client.urgent               $light90  $hint     $light90  $hint  $dark100
+client.placeholder          $light60  $dark100  $light90  $hint  $dark100
+client.background           $light60
+
+bar {
+
+    # mode dock
+    # separator_symbol "-"
+    # workspace_buttons yes
+
+    # height 30
+    modifier $mod
+    position top
+    status_command i3status-rs ~/.config/i3/i3status-rust.toml
+    strip_workspace_numbers no
+    tray_output primary
+
+    colors {
+        background          $dark100
+        statusline          $light70
+        separator           $light70
+
+        # item              border    bg        text
+        focused_workspace   $light90  $dark80   $light90
+        active_workspace    $light60  $dark80   $light80
+        inactive_workspace  $light60  $dark100  $light80
+        urgent_workspace    $light90  $hint    $light90
+    }
+}
+
+exec_always --no-startup-id i3wsr -i awesome --config ~/.config/i3/i3wsr.toml
+# exec_always --no-startup-id ~/files/dev/temp/barchart.sh
+exec --no-startup-id gnome-flashback
+exec --no-startup-id nm-applet
+exec --no-startup-id blueberry-tray
+exec --no-startup-id pamac-tray
+
+#for_window [all] title_window_icon padding 5 , title_format  "<span font='JetBrainsMono NF 10'>%title</span>"
+#for_window [tiling] border pixel 1
+#for_window [floating] border pixel 1
+
+for_window [class=Bitwarden] floating enable
+for_window [class=confirm] floating enable
+for_window [class=confirmreset] floating enable
+for_window [class=dialog] floating enable
+for_window [class=download] floating enable
+for_window [class=error] floating enable
+for_window [class=file_progress] floating enable
+for_window [class=File-roller] floating enable
+for_window [class=Fsearch] floating enable
+for_window [class=Gcolor3] floating enable
+for_window [class=Gnome-control-center] floating enable
+for_window [class=Gnome-tweaks] floating enable
+for_window [class=Gnote] floating enable
+for_window [class=mpv] floating enable
+for_window [class=Navigator] floating enable
+for_window [class=notification] floating enable
+for_window [class=Pavucontrol] floating enable
+for_window [class=Qemu-system-x86_64] floating enable
+for_window [class=Quodlibet] floating enable
+for_window [class=Seahorse] floating enable
+for_window [class=toolbar] floating enable
+for_window [class=Wine] floating enable
+for_window [class=zenity] floating enable
+for_window [class=zoom] floating enable
+
+for_window [window_role=About] floating enable
+for_window [window_role=bubble] floating enable
+for_window [window_role=dialog] floating enable
+for_window [window_role=menu] floating enable
+for_window [window_role=Organizer] floating enable
+for_window [window_role=page-info] floating enable
+for_window [window_role=PictureInPicture] floating enable
+for_window [window_role=pop-up] floating enable
+for_window [window_role=Preferences] floating enable
+for_window [window_role=task_dialog] floating enable
+for_window [window_role=webconsole] floating enable
+
+
+
+# Archived
+
+# bindsym $mod+b exec --no-startup-id i3_balance_workspace
+# bindsym $mod+Ctrl+shift+space exec --no-startup-id rofi -show drun -run-command 'prime-run "{cmd}"'
+# bindsym $mod+space exec --no-startup-id rofi -show combi
+# bindsym $mod+$sup+Ctrl+space exec --no-startup-id ~/files/bin/vpnrun.sh
+# for_window [floating] move position center
+# for_window [class=Nautilus] floating enable
+# for_window [class=firefox window_role=PictureInPicture] floating enable sticky enable
+# for_window [class="^.*"] border pixel 1 move center
+# bindsym Mod1+Ctrl+Shift+q --release exec --no-startup-id xkill
+# exec --no-startup-id ~/files/bin/toggle-picom.sh
+# exec --no-startup-id ckb-next --background
+# exec --no-startup-id systemctl --user restart pipewire pipewire-pulse
+# exec gsettings set org.gnome.gnome-flashback desktop false
+# exec gsettings set org.gnome.gnome-flashback status-notifier-watcher false
+# exec_always --no-startup-id nitrogen --restore

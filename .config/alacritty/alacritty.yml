@@ -1,0 +1,65 @@
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+font:
+  normal:
+    #family: GohuFont Nerd Font
+    #family: Scientifica
+    #family: FuraMono Nerd Font
+    #family: JetBrainsMono Nerd Font
+    family: Maple Mono NF
+    #family: BigBlue_TerminalPlus Nerd Font
+    #family: BigBlue TerminalPlus
+    #family: BigBlue_Terminal_437TT Nerd Font Mono
+    #family: BigBlue TerminalPlus
+  style: Regular
+  size: 11
+window:
+  decorations: Full
+  dynamic_padding: true
+  #  padding:
+  #    x: 5
+  #    y: 5
+  #opacity: 0.8
+cursor:
+  style:
+    blinking: Always
+    shape: Block
+
+colors:
+  # Default colors
+  primary:
+    background: '0x282c34'
+    foreground: '0xabb2bf'
+
+  # Selection colors
+  selection:
+    text:       CellForeground
+    background: '0x393f4a'
+
+  # Normal colors
+  normal:
+    black:   '0x20232A'
+    red:     '0xe86671'
+    green:   '0x98c379'
+    yellow:  '0xe5c07b'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x798294'
+
+  # Bright colors
+  bright:
+    black:   '0x798294'
+    red:     '0xe86671'
+    green:   '0x98c379'
+    yellow:  '0xe5c07b'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
+
+  indexed_colors:
+    - { index: 16, color: '0xd19a66' }
+    - { index: 17, color: '0xf65866' }

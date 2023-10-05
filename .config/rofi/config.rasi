@@ -1,0 +1,65 @@
+configuration {
+    display-drun: "app >";
+    display-run: "run >";
+    display-calc: "calc >";
+    display-combi: "combi >";
+    display-window: "window >";
+    display-ssh: "ssh >";
+    display-icon: "icon >";
+    modi: "drun,run,window";
+    //modi: "drun,run,icon:~/files/nc/bin/emoji.sh,window";
+    // combi-modi: "window,drun,run,icon:~/files/nc/bin/emoji.sh";
+    disable-history: true;
+    hide-scrollbar: false;
+    show-icons: true;
+    sidebar-mode: true;
+    font: "agave Nerd Font 13.0";
+}
+
+window {
+    width: 33%;
+    height: 33%;
+}
+
+* {
+    red:                         #bf616a;
+    blue:                        #99bee3;
+
+    foreground:                  #e6e6e6;
+    background:                  #1e1e1e;
+
+    black:                       #000000;
+    white:                       #ffffff;
+
+    border-radius:                  2;
+
+    // spacing:                     10;
+
+    background-color:            var(background);
+    separatorcolor:              var(foreground);
+    border-color:                var(background);
+
+    normal-foreground:           var(foreground);
+    alternate-normal-foreground: var(foreground);
+    selected-normal-foreground:  var(black);
+
+    alternate-normal-background: var(background);
+    normal-background:           var(background);
+    selected-normal-background:  var(blue);
+
+    active-foreground:           var(blue);
+    alternate-active-foreground: var(blue);
+    selected-active-foreground:  var(black);
+
+    active-background:           var(background);
+    alternate-active-background: var(background);
+    selected-active-background:  var(blue);
+
+    urgent-foreground:           var(red);
+    alternate-urgent-foreground: var(red);
+    selected-urgent-foreground:  var(black);
+
+    urgent-background:           var(background);
+    alternate-urgent-background: var(background);
+    selected-urgent-background:  var(blue);
+}

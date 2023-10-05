@@ -1,0 +1,6 @@
+NPM_PACKAGES=$HOME/.npm-packages
+PATH=$PATH:$NPM_PACKAGES/bin
+PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/bin
+export PATH
+export NPM_PACKAGES

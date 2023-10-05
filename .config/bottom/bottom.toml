@@ -1,0 +1,35 @@
+[flags]
+group_processes = true
+regex = true
+hide_time = true
+hide_table_gap = true
+hide_avg_cpu = true
+rate = 1000
+#left_legend = true
+[[row]]
+  ratio=25
+  [[row.child]]
+    ratio = 24
+    type="mem"
+  [[row.child]]
+    ratio = 24
+    type="net"
+  [[row.child]]
+    ratio = 24
+    type="disk"
+  [[row.child]]
+    ratio = 25
+    type="battery"
+[[row]]
+  ratio=25
+  [[row.child]]
+    type="cpu"
+    ratio=7
+  [[row.child]]
+    ratio= 1
+    type="temp"
+[[row]]
+  ratio=50
+  [[row.child]]
+    type="proc"
+    default=true

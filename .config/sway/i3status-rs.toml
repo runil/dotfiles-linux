@@ -1,0 +1,113 @@
+[theme]
+theme = "native"
+
+[theme.overrides]
+#  •⁃
+separator = ""
+
+[icons]
+icons = "awesome6"
+
+# [[block]]
+# block = "pomodoro"
+
+[[block]]
+block = "music"
+seek_step_secs = 2
+[block.format]
+full = " $play $combo.str(max_w:20, rot_interval:0.5) |"
+short = " $play $combo.str(max_w:12, rot_interval:0.5) |"
+[[block.click]]
+button = "left"
+action = "play_pause"
+
+# [[block]]
+# block = "cpu"
+
+# [[block]]
+# block = "load"
+
+# [[block]]
+# block = "memory"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+format = " $icon {$volume |}"
+device_kind = "sink"
+step_width = 1
+merge_with_next = true
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+format = " $icon {$volume |}"
+device_kind = "source"
+step_width = 1
+[[block.click]]
+button = "left"
+action = "toggle_mute"
+
+[[block]]
+block = "backlight"
+invert_icons = true
+minimum = 1
+# missing_format = ""
+cycle = [1, 25, 50, 85]
+
+[[block]]
+block = "hueshift"
+hue_shifter = "wlsunset"
+format = " $temperature\u00B0K "
+step = 100
+click_temp = 6500
+
+[[block]]
+block = "net"
+
+# [[block.click]]
+# button = "left"
+# cmd = "gnome-control-center wifi"
+
+[[block]]
+block = "battery"
+# format = " $icon $time $power "
+# full_format = " $icon "
+
+[[block]]
+block = "time"
+
+[[block]]
+block = "toggle"
+format = " $icon "
+command_state = '[ $(powerprofilesctl get) != "performance" ] && echo on'
+command_off = "powerprofilesctl set performance"
+command_on = '[ $(cat class/power_supply/AC/online) = 1 ] && powerprofilesctl set balanced || powerprofilesctl set power-saver'
+[block.icons_overrides]
+toggle_on = ""
+toggle_off = "󱐋"
+
+[[block]]
+block = "toggle"
+format = " $icon "
+command_state = "pidof -x swayidle > /dev/null && echo on"
+command_on = "swaymsg exec swayidle.sh"
+command_off = "killall swayidle"
+# interval = 5
+[block.icons_overrides]
+toggle_on = "󰒲"
+toggle_off = "󰒳"
+
+[[block]]
+block = "notify"
+driver = "swaync"
+format = " $icon {($notification_count.eng(w:1)) |}"
+[[block.click]]
+button = "left"
+action = "show"
+[[block.click]]
+button = "right"
+action = "toggle_paused"

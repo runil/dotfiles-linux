@@ -1,0 +1,43 @@
+# alias clear="clear && pfetch"
+# alias ls=exa:
+#alias rm="/home/user/Development/awesome/rmtrash/rmtrash"
+#alias rmdir="/home/user/Development/awesome/rmtrash/rmtrashdir"
+#alias sudo='sudo '
+alias -g lofi="mpv --no-video --no-terminal https://www.youtube.com/watch\?v\=5qap5aO4i9A"
+alias weather='curl wttr.in/shibuya'
+
+alias now='date +%Y%m%d_%H%M%S'
+
+# alias icat="kitty +kitten icat"
+# alias kimg="kitty +kitten icat"
+# alias kdiff="kitty +kitten diff"
+
+alias ffprobe="ffprobe -hide_banner"
+# alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=/'
+
+alias trim_whitespace="awk '{\$1=\$1;print}'"
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# alias less="less -R"
+
+# if type exa >/dev/null 2>&1; then
+#     alias l="exa"
+#     alias ls="exa -F"
+#     alias ll="exa -l"
+#     alias la="exa -a"
+#     alias lt="exa --tree"
+#     alias lla="exa -la"
+#     alias l.='exa -ld .*'
+# else
+#     alias ls="ls -p --color"
+#     alias l="ls"
+#     alias ll="ls -l"
+#     alias la="ls -A"
+#     alias lla="ls -lA"
+# fi
+
+# if type bat >/dev/null 2>&1; then
+#     alias cat="bat -p"
+# fi
